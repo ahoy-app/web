@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 const styles = {
   background: 'linear-gradient(135deg, #fff 0%, #e8e8e8 100%)',
@@ -23,5 +24,9 @@ const Message = ({ message }) => (
     <span>{message.content}</span>
   </div>
 )
+
+Message.propTypes = {
+  message: PropTypes.object,
+}
 
 export default Radium(Message)

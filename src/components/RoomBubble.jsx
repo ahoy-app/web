@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 const styles = {
   backgroundColor: 'gray',
@@ -18,5 +19,9 @@ const RoomBubble = ({ room }) => (
     {room.charAt(0)}
   </div>
 )
+
+RoomBubble.propTypes = {
+  room: PropTypes.string,
+}
 
 export default Radium(RoomBubble)

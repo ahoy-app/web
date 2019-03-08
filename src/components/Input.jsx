@@ -13,7 +13,7 @@ const styles = {
   display: 'flex',
 }
 
-const Input = ({}) => (
+const Input = () => (
   <div style={styles}>
     <TextBox />
   </div>

@@ -16,10 +16,12 @@ const styles = {
 
 const messages = [
   {
+    id: '8yv88rbjt6',
     from: '-',
     content: 'Hi',
   },
   {
+    id: 'xfqc34bup6',
     from: 'You',
     content: 'Hey',
   },

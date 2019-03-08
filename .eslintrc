@@ -1,0 +1,35 @@
+root: true
+parser: babel-eslint
+
+plugins:
+  - react
+  - import
+  - jest
+
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:jest/recommended
+
+env:
+  es6: true
+  node: true
+  browser: true
+  jest/globals: true
+
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: module
+  ecmaFeatures:
+  jsx: true
+
+settings:
+  react:
+    version: 16.8.4
+
+rules:
+   yoda: [error, never, { exceptRange: true }]
+   import/prefer-default-export: error
+   import/first: ['error', 'absolute-first']
+   no-console: off
+   no-debugger: off

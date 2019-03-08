@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 import MessageRow from './MessageRow'
 
@@ -18,9 +19,12 @@ const styles = {
 const Messages = ({ messages }) => (
   <div style={styles}>
     {messages.map(message => (
-      <MessageRow message={message} />
+      <MessageRow message={message} key={message.id} />
     ))}
   </div>
 )
 
+Messages.propTypes = {
+  messages: PropTypes.array,
+}
 export default Radium(Messages)

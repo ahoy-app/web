@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 import RoomBubble from './RoomBubble'
 import Spacer from './Spacer'
@@ -20,11 +21,15 @@ const styles = {
 const RoomSelector = ({ rooms = [] }) => (
   <div style={styles}>
     {rooms.map(room => (
-      <Spacer top={5} bottom={5}>
-        <RoomBubble room={room} key={room} />
+      <Spacer top={5} bottom={5} key={room}>
+        <RoomBubble room={room} />
       </Spacer>
     ))}
   </div>
 )
+
+RoomSelector.propTypes = {
+  rooms: PropTypes.array,
+}
 
 export default Radium(RoomSelector)

@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 const styles = {
   background: 'linear-gradient(135deg, #cee 0%, #08a 100%)',
@@ -12,5 +13,9 @@ const styles = {
 }
 
 const Room = ({ children }) => <div style={styles}>{children}</div>
+
+Room.propTypes = {
+  children: PropTypes.array,
+}
 
 export default Radium(Room)

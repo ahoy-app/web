@@ -19,6 +19,6 @@ const styles = {
     '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
 }
 
-const TextBox = ({}) => <input style={styles} />
+const TextBox = () => <input style={styles} />
 
 export default Radium(TextBox)
