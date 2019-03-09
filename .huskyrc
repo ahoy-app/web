@@ -1,10 +1,2 @@
-const tasks = arr => arr.join(' && ')
-
-module.exports = {
-  'hooks': {
-    'pre-commit': tasks([
-      'pretify',
-      'lint',
-    ])
-  }
-}
+hooks:
+  pre-commit: lint-staged && CI=true yarn test

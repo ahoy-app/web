@@ -1,0 +1,4 @@
+"*.{js,jsx}":
+  - yarn prettify
+  - yarn lint
+  - git add

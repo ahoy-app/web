@@ -13,9 +13,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js,.jsx .",
-    "pretify": "prettier --write '**/*.{js,jsx}'",
-    "pretify:check": "prettier --check '**/*.{js,jsx}'"
+    "lint": "eslint --ext .js,.jsx",
+    "lint:all": "eslint --ext .js,.jsx .",
+    "prettify": "prettier --write",
+    "prettify:all": "prettier --write '**/*.{js,jsx}'",
+    "prettify:check-all": "prettier --check '**/*.{js,jsx}'"
   },
   "browserslist": [
     ">0.2%",
@@ -24,11 +26,11 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.15.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
   }
 }
