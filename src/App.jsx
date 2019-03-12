@@ -6,6 +6,8 @@ import Room from './components/Room'
 import RoomSelector from './components/RoomSelector'
 import Messages from './components/Messages'
 
+import { receiveNewMessages, fetchOldMessages } from './mocks/messages'
+
 const styles = {
   backgroundColor: 'yellow',
   height: '100vh',
@@ -14,24 +16,14 @@ const styles = {
   display: 'flex',
 }
 
-const messages = [
-  {
-    id: '8yv88rbjt6',
-    from: '-',
-    content: 'Hi',
-  },
-  {
-    id: 'xfqc34bup6',
-    from: 'You',
-    content: 'Hey',
-  },
-]
-
 const App = () => (
   <div style={styles}>
     <RoomSelector rooms={['My', 'Chat']} />
     <Room>
-      <Messages messages={messages} />
+      <Messages
+        messages={receiveNewMessages()}
+        fetchOldMessages={fetchOldMessages}
+      />
       <Input />
     </Room>
   </div>
