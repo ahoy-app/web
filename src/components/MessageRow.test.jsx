@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import MessageRow from './MessageRow'
 
@@ -9,9 +9,15 @@ const message = {
   content: 'See you later',
 }
 
+let component
+
 describe('MessageRow', () => {
+  afterAll(() => {
+    if (component) component.unmount()
+  })
+
   it('should render correctly', () => {
-    const component = shallow(<MessageRow message={message} />)
+    component = mount(<MessageRow message={message} />)
     expect(component).toMatchSnapshot()
   })
 })

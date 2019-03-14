@@ -1,38 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RoomSelector should render correctly 1`] = `
-<div
-  data-radium={true}
-  style={
-    Object {
-      "alignItems": "center",
-      "background": "linear-gradient(45deg, #045 0%, #9bb 100%)",
-      "display": "flex",
-      "flexDirection": "column",
-      "height": "100%",
-      "justifyContent": "flex-start",
-      "padding": "0px 5px 0px 5px",
-      "width": "45px",
-    }
+<RoomSelector
+  rooms={
+    Array [
+      "mclarens",
+      "GNB",
+    ]
   }
 >
-  <Spacer
-    bottom={5}
-    key=".$mclarens"
-    top={5}
+  <div
+    data-radium={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "background": "linear-gradient(45deg, #045 0%, #9bb 100%)",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "flex-start",
+        "padding": "0px 5px 0px 5px",
+        "width": "45px",
+      }
+    }
   >
-    <RoomBubble
-      room="mclarens"
-    />
-  </Spacer>
-  <Spacer
-    bottom={5}
-    key=".$GNB"
-    top={5}
-  >
-    <RoomBubble
-      room="GNB"
-    />
-  </Spacer>
-</div>
+    <Spacer
+      bottom={5}
+      key=".$mclarens"
+      top={5}
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "padding": "5px 0px 5px 0px",
+          }
+        }
+      >
+        <RoomBubble
+          room="mclarens"
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "backgroundColor": "gray",
+                "borderRadius": "50%",
+                "height": "40px",
+                "lineHeight": "40px",
+                "textAlign": "center",
+                "width": "40px",
+              }
+            }
+          >
+            M
+          </div>
+        </RoomBubble>
+      </div>
+    </Spacer>
+    <Spacer
+      bottom={5}
+      key=".$GNB"
+      top={5}
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "padding": "5px 0px 5px 0px",
+          }
+        }
+      >
+        <RoomBubble
+          room="GNB"
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "backgroundColor": "gray",
+                "borderRadius": "50%",
+                "height": "40px",
+                "lineHeight": "40px",
+                "textAlign": "center",
+                "width": "40px",
+              }
+            }
+          >
+            G
+          </div>
+        </RoomBubble>
+      </div>
+    </Spacer>
+  </div>
+</RoomSelector>
 `;

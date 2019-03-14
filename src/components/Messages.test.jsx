@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import Messages from './Messages'
 
@@ -22,10 +22,28 @@ const messages = [
 ]
 
 describe('Messages', () => {
+  beforeAll(() => {
+    if (!HTMLElement.prototype.scrollIntoView) {
+      HTMLElement.prototype.scrollIntoView = jest.fn()
+    }
+  })
+
   it('should render correctly', () => {
-    const component = shallow(
-      <Messages messages={messages} fetchOld={() => {}} />
+    const component = mount(
+      <Messages messages={messages} fetchOldMessages={() => {}} />
     )
     expect(component).toMatchSnapshot()
+  })
+
+  it('should call fetchOldMessages when scrolled up', () => {
+    const fetchFn = jest.fn()
+
+    const component = mount(
+      <Messages messages={messages} fetchOldMessages={fetchFn} />
+    )
+
+    component.simulate('scroll')
+
+    expect(fetchFn).toHaveBeenCalled()
   })
 })

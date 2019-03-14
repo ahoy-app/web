@@ -1,13 +1,18 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import RoomSelector from './RoomSelector'
 
 const rooms = ['mclarens', 'GNB']
 
+let component
+
 describe('RoomSelector', () => {
+  afterAll(() => {
+    if (component) component.unmount()
+  })
   it('should render correctly', () => {
-    const component = shallow(<RoomSelector rooms={rooms} />)
+    component = mount(<RoomSelector rooms={rooms} />)
     expect(component).toMatchSnapshot()
   })
 })
