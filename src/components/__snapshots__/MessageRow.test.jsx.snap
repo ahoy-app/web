@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageRow should render correctly 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "alignSelf": "flex-start",
+      "boxSizing": "border-box",
+      "padding": "5px 0px 5px 0px",
+    }
+  }
+>
+  <Message
+    message={
+      Object {
+        "content": "See you later",
+        "from": "Ted",
+        "id": "q384tp1349fgh139p48g",
+      }
+    }
+  />
+</div>
+`;

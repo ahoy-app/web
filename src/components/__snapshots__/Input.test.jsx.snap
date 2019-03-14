@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render correctly 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "boxSizing": "border-box",
+      "display": "flex",
+      "padding": "5px 10px 10px 10px",
+      "width": "100%",
+    }
+  }
+>
+  <TextBox />
+</div>
+`;

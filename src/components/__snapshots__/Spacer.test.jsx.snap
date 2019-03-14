@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer should render correctly 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "padding": "0px 0px 0px 0px",
+    }
+  }
+/>
+`;
