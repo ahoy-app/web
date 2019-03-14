@@ -1,11 +1,16 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import Input from './Input'
 
+let component
+
 describe('Input', () => {
+  afterAll(() => {
+    if (component) component.unmount()
+  })
   it('should render correctly', () => {
-    const component = shallow(<Input />)
+    component = mount(<Input onChange={() => {}} />)
     expect(component).toMatchSnapshot()
   })
 })

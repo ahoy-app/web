@@ -24,7 +24,7 @@ const App = () => (
         messages={receiveNewMessages()}
         fetchOldMessages={fetchOldMessages}
       />
-      <Input />
+      <Input onChange={() => {}} />
     </Room>
   </div>
 )

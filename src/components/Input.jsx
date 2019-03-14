@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import PropTypes from 'prop-types'
 
 import TextBox from './TextBox'
 
@@ -13,10 +14,14 @@ const styles = {
   display: 'flex',
 }
 
-const Input = () => (
+const Input = ({ onChange }) => (
   <div style={styles}>
-    <TextBox />
+    <TextBox onChange={onChange} />
   </div>
 )
+
+Input.propTypes = {
+  onChange: PropTypes.func.isRequired,
+}
 
 export default Radium(Input)
