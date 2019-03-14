@@ -10,7 +10,7 @@ describe('Input', () => {
     if (component) component.unmount()
   })
   it('should render correctly', () => {
-    component = mount(<Input onChange={() => {}} />)
+    component = mount(<Input onChange={() => {}} onSend={() => {}} />)
     expect(component).toMatchSnapshot()
   })
 })

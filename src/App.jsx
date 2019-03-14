@@ -24,7 +24,14 @@ const App = () => (
         messages={receiveNewMessages()}
         fetchOldMessages={fetchOldMessages}
       />
-      <Input onChange={() => {}} />
+      <Input
+        onChange={event => {
+          console.log('Updated text:' + event.target.value)
+        }}
+        onSend={() => {
+          console.log('Send click')
+        }}
+      />
     </Room>
   </div>
 )

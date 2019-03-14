@@ -5,15 +5,12 @@ import PropTypes from 'prop-types'
 const styles = {
   backgroundColor: 'white',
   height: '40px',
-  // width: '100%',
-  flex: 1,
+
+  minWidth: '40px',
 
   borderRadius: '1rem',
   border: 'none',
   filter: 'drop-shadow(2px 5px 2px #0003)',
-
-  padding: '0px 10px 0px 10px',
-  boxSizing: 'border-box',
 
   lineHeight: '2rem',
   fontSize: '1em',
@@ -21,13 +18,10 @@ const styles = {
     '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
 }
 
-const TextBox = ({ value, onChange }) => (
-  <input style={styles} value={value} onChange={onChange} />
-)
+const RoundButton = ({ onClick }) => <button style={styles} onClick={onClick} />
 
-TextBox.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+RoundButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }
 
-export default Radium(TextBox)
+export default Radium(RoundButton)
