@@ -23,7 +23,7 @@ const MessageRow = ({ message }) => (
 )
 
 MessageRow.propTypes = {
-  message: PropTypes.object,
+  message: PropTypes.object.isRequired,
 }
 
 export default Radium(MessageRow)

@@ -26,7 +26,7 @@ const Message = ({ message }) => (
 )
 
 Message.propTypes = {
-  message: PropTypes.object,
+  message: PropTypes.object.isRequired,
 }
 
 export default Radium(Message)

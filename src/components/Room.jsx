@@ -15,7 +15,7 @@ const styles = {
 const Room = ({ children }) => <div style={styles}>{children}</div>
 
 Room.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.array.isRequired,
 }
 
 export default Radium(Room)

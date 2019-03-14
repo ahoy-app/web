@@ -16,12 +16,12 @@ const styles = {
 const RoomBubble = ({ room }) => (
   <div style={styles}>
     {console.log(room)}
-    {room.charAt(0)}
+    {room.charAt(0).toUpperCase()}
   </div>
 )
 
 RoomBubble.propTypes = {
-  room: PropTypes.string,
+  room: PropTypes.string.isRequired,
 }
 
 export default Radium(RoomBubble)

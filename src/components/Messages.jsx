@@ -42,8 +42,8 @@ const Messages = ({ messages, fetchOldMessages }) => {
 }
 
 Messages.propTypes = {
-  messages: PropTypes.array,
-  fetchOldMessages: PropTypes.func,
+  messages: PropTypes.array.isRequired,
+  fetchOldMessages: PropTypes.func.isRequired,
 }
 // export default Radium(Messages)
 export default Messages

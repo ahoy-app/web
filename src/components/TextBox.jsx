@@ -1,6 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
-
+import PropTypes from 'prop-types'
 const styles = {
   backgroundColor: 'white',
   // height: '40px',
@@ -19,6 +19,13 @@ const styles = {
     '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
 }
 
-const TextBox = () => <input style={styles} />
+const TextBox = ({ value, onChange }) => (
+  <input style={styles} value={value} onChange={onChange} />
+)
+
+TextBox.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+}
 
 export default Radium(TextBox)

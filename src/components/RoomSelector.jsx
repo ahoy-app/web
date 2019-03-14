@@ -18,7 +18,7 @@ const styles = {
   alignItems: 'center',
 }
 
-const RoomSelector = ({ rooms = [] }) => (
+const RoomSelector = ({ rooms }) => (
   <div style={styles}>
     {rooms.map(room => (
       <Spacer top={5} bottom={5} key={room}>
@@ -29,7 +29,7 @@ const RoomSelector = ({ rooms = [] }) => (
 )
 
 RoomSelector.propTypes = {
-  rooms: PropTypes.array,
+  rooms: PropTypes.array.isRequired,
 }
 
 export default Radium(RoomSelector)
