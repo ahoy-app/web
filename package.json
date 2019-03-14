@@ -13,11 +13,15 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js,.jsx",
-    "lint:all": "eslint --ext .js,.jsx .",
-    "prettify": "prettier --write",
-    "prettify:all": "prettier --write '**/*.{js,jsx}'",
-    "prettify:check-all": "prettier --check '**/*.{js,jsx}'"
+    "lint": "lint:file .",
+    "lint:file": "eslint --ext .js,.jsx",
+    "prettify": "prettify:file '**/*.{js,jsx}'",
+    "prettify:file": "prettier --write",
+    "prettify:check": "prettify:check-file '**/*.{js,jsx}'",
+    "prettify:check-file": "prettier --check"
+  },
+  "jest": {
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "browserslist": [
     ">0.2%",
@@ -26,6 +30,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-react": "^7.12.4",
