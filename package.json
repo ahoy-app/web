@@ -12,6 +12,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "electron:prod": "electron .",
+    "electron": "ELECTRON_START_URL=http://localhost:3000 electron .",
     "eject": "react-scripts eject",
     "lint": "lint:file .",
     "lint:file": "eslint --ext .js,.jsx",
@@ -23,6 +25,8 @@
   "jest": {
     "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
+  "main": "src/electron-starter.js",
+  "homepage": "./",
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -30,6 +34,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "electron": "^4.1.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.3.5",
