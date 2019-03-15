@@ -1,5 +1,6 @@
 {
   "name": "ahoy",
+  "productName": "Ahoy",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,16 +15,20 @@
     "test": "react-scripts test",
     "electron:prod": "electron .",
     "electron": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "build-electron:no-target": "electron-packager . Ahoy --overwrite --out ./package/ --icon ./public/favicon.ico",
+    "build-electron": "yarn build-electron:no-target --platform linux,darwin --arch all",
     "eject": "react-scripts eject",
-    "lint": "lint:file .",
+    "lint": "yarn lint:file .",
     "lint:file": "eslint --ext .js,.jsx",
-    "prettify": "prettify:file '**/*.{js,jsx}'",
+    "prettify": "yarn prettify:file '**/*.{js,jsx}'",
     "prettify:file": "prettier --write",
-    "prettify:check": "prettify:check-file '**/*.{js,jsx}'",
+    "prettify:check": "yarn prettify:check-file '**/*.{js,jsx}'",
     "prettify:check-file": "prettier --check"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "main": "src/electron-starter.js",
   "homepage": "./",
@@ -35,6 +40,7 @@
   ],
   "devDependencies": {
     "electron": "^4.1.0",
+    "electron-packager": "^13.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.3.5",
