@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBox should render correctly 1`] = `
+<input
+  data-radium={true}
+  onChange={[Function]}
+  style={
+    Object {
+      "backgroundColor": "white",
+      "border": "none",
+      "borderRadius": "1rem",
+      "boxSizing": "border-box",
+      "filter": "drop-shadow(2px 5px 2px #0003)",
+      "flex": 1,
+      "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+      "fontSize": "1em",
+      "height": "40px",
+      "lineHeight": "2rem",
+      "padding": "0px 10px 0px 10px",
+    }
+  }
+/>
+`;

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render correctly 1`] = `
+<Input
+  onChange={[Function]}
+  onSend={[Function]}
+>
+  <div
+    data-radium={true}
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "display": "flex",
+        "padding": "5px 10px 10px 10px",
+        "width": "100%",
+      }
+    }
+  >
+    <TextBox
+      key=".0"
+      onChange={[Function]}
+    >
+      <input
+        data-radium={true}
+        onChange={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "border": "none",
+            "borderRadius": "1rem",
+            "boxSizing": "border-box",
+            "filter": "drop-shadow(2px 5px 2px #0003)",
+            "flex": 1,
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+            "fontSize": "1em",
+            "height": "40px",
+            "lineHeight": "2rem",
+            "padding": "0px 10px 0px 10px",
+          }
+        }
+      />
+    </TextBox>
+    <Spacer
+      key=".1"
+      right={10}
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "padding": "0px 10px 0px 0px",
+          }
+        }
+      />
+    </Spacer>
+    <RoundButton
+      key=".2"
+      onClick={[Function]}
+    >
+      <button
+        data-radium={true}
+        onClick={[Function]}
+        style={
+          Object {
+            "backgroundColor": "white",
+            "border": "none",
+            "borderRadius": "1rem",
+            "filter": "drop-shadow(2px 5px 2px #0003)",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+            "fontSize": "1em",
+            "height": "40px",
+            "lineHeight": "2rem",
+            "minWidth": "40px",
+          }
+        }
+      />
+    </RoundButton>
+  </div>
+</Input>
+`;

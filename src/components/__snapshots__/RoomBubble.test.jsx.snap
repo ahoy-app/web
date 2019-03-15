@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RoomBubble should render correctly 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "backgroundColor": "gray",
+      "borderRadius": "50%",
+      "height": "40px",
+      "lineHeight": "40px",
+      "textAlign": "center",
+      "width": "40px",
+    }
+  }
+>
+  M
+</div>
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message should render correctly 1`] = `
+<div
+  data-radium={true}
+  style={
+    Object {
+      "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+      "borderRadius": "10px",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "filter": "drop-shadow(2px 5px 2px #0003)",
+      "flexDirection": "column",
+      "minHeight": "40px",
+      "padding": "5px 10px 5px 10px",
+      "width": "500px",
+    }
+  }
+>
+  <span
+    key=".0"
+  >
+    Ted
+  </span>
+  <span
+    key=".1"
+  >
+    See you later
+  </span>
+</div>
+`;

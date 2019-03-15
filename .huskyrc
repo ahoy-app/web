@@ -1,0 +1,2 @@
+hooks:
+  pre-commit: lint-staged && CI=true yarn test

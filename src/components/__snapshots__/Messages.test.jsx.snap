@@ -1,0 +1,221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Messages should render correctly 1`] = `
+<Messages
+  fetchOldMessages={[Function]}
+  messages={
+    Array [
+      Object {
+        "content": "It's gona be legend.. Whait for it!",
+        "from": "Barney",
+        "id": "12we4tq34t9guw1344tt",
+      },
+      Object {
+        "content": "See you later",
+        "from": "-",
+        "id": "q384tp1349fgh139p48g",
+      },
+      Object {
+        "content": "..dary! Legendary, Ted!",
+        "from": "Barney",
+        "id": "823498t1394gt13t1448",
+      },
+    ]
+  }
+>
+  <div
+    onScroll={[Function]}
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "boxSizing": "border-box",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "overflowY": "scroll",
+        "padding": "5px 10px 5px 10px",
+        "width": "100%",
+      }
+    }
+  >
+    <MessageRow
+      key="12we4tq34t9guw1344tt"
+      message={
+        Object {
+          "content": "It's gona be legend.. Whait for it!",
+          "from": "Barney",
+          "id": "12we4tq34t9guw1344tt",
+        }
+      }
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "boxSizing": "border-box",
+            "padding": "5px 0px 5px 0px",
+          }
+        }
+      >
+        <Message
+          message={
+            Object {
+              "content": "It's gona be legend.. Whait for it!",
+              "from": "Barney",
+              "id": "12we4tq34t9guw1344tt",
+            }
+          }
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "borderRadius": "10px",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "filter": "drop-shadow(2px 5px 2px #0003)",
+                "flexDirection": "column",
+                "minHeight": "40px",
+                "padding": "5px 10px 5px 10px",
+                "width": "500px",
+              }
+            }
+          >
+            <span
+              key=".0"
+            >
+              Barney
+            </span>
+            <span
+              key=".1"
+            >
+              It's gona be legend.. Whait for it!
+            </span>
+          </div>
+        </Message>
+      </div>
+    </MessageRow>
+    <MessageRow
+      key="q384tp1349fgh139p48g"
+      message={
+        Object {
+          "content": "See you later",
+          "from": "-",
+          "id": "q384tp1349fgh139p48g",
+        }
+      }
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "alignSelf": "flex-end",
+            "boxSizing": "border-box",
+            "padding": "5px 0px 5px 0px",
+          }
+        }
+      >
+        <Message
+          message={
+            Object {
+              "content": "See you later",
+              "from": "-",
+              "id": "q384tp1349fgh139p48g",
+            }
+          }
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "borderRadius": "10px",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "filter": "drop-shadow(2px 5px 2px #0003)",
+                "flexDirection": "column",
+                "minHeight": "40px",
+                "padding": "5px 10px 5px 10px",
+                "width": "500px",
+              }
+            }
+          >
+            <span
+              key=".0"
+            >
+              -
+            </span>
+            <span
+              key=".1"
+            >
+              See you later
+            </span>
+          </div>
+        </Message>
+      </div>
+    </MessageRow>
+    <MessageRow
+      key="823498t1394gt13t1448"
+      message={
+        Object {
+          "content": "..dary! Legendary, Ted!",
+          "from": "Barney",
+          "id": "823498t1394gt13t1448",
+        }
+      }
+    >
+      <div
+        data-radium={true}
+        style={
+          Object {
+            "alignSelf": "flex-start",
+            "boxSizing": "border-box",
+            "padding": "5px 0px 5px 0px",
+          }
+        }
+      >
+        <Message
+          message={
+            Object {
+              "content": "..dary! Legendary, Ted!",
+              "from": "Barney",
+              "id": "823498t1394gt13t1448",
+            }
+          }
+        >
+          <div
+            data-radium={true}
+            style={
+              Object {
+                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "borderRadius": "10px",
+                "boxSizing": "border-box",
+                "display": "flex",
+                "filter": "drop-shadow(2px 5px 2px #0003)",
+                "flexDirection": "column",
+                "minHeight": "40px",
+                "padding": "5px 10px 5px 10px",
+                "width": "500px",
+              }
+            }
+          >
+            <span
+              key=".0"
+            >
+              Barney
+            </span>
+            <span
+              key=".1"
+            >
+              ..dary! Legendary, Ted!
+            </span>
+          </div>
+        </Message>
+      </div>
+    </MessageRow>
+    <div />
+  </div>
+</Messages>
+`;
