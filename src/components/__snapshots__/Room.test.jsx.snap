@@ -5,7 +5,7 @@ exports[`Room should render correctly 1`] = `
   data-radium={true}
   style={
     Object {
-      "background": "linear-gradient(135deg, #cee 0%, #08a 100%)",
+      "background": "#fff",
       "display": "flex",
       "flexDirection": "column",
       "height": "100%",

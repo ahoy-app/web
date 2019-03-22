@@ -59,6 +59,7 @@ exports[`Messages should render correctly 1`] = `
         }
       >
         <Message
+          me={false}
           message={
             Object {
               "content": "It's gona be legend.. Whait for it!",
@@ -71,7 +72,7 @@ exports[`Messages should render correctly 1`] = `
             data-radium={true}
             style={
               Object {
-                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "background": "#fff",
                 "borderRadius": "10px",
                 "boxSizing": "border-box",
                 "display": "flex",
@@ -118,6 +119,7 @@ exports[`Messages should render correctly 1`] = `
         }
       >
         <Message
+          me={true}
           message={
             Object {
               "content": "See you later",
@@ -130,7 +132,7 @@ exports[`Messages should render correctly 1`] = `
             data-radium={true}
             style={
               Object {
-                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "background": "#cef",
                 "borderRadius": "10px",
                 "boxSizing": "border-box",
                 "display": "flex",
@@ -177,6 +179,7 @@ exports[`Messages should render correctly 1`] = `
         }
       >
         <Message
+          me={false}
           message={
             Object {
               "content": "..dary! Legendary, Ted!",
@@ -189,7 +192,7 @@ exports[`Messages should render correctly 1`] = `
             data-radium={true}
             style={
               Object {
-                "background": "linear-gradient(135deg, #fff 0%, #e8e8e8 100%)",
+                "background": "#fff",
                 "borderRadius": "10px",
                 "boxSizing": "border-box",
                 "display": "flex",

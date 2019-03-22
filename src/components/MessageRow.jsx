@@ -11,16 +11,19 @@ const styles = {
   // alignSelf: 'flex-end',
 }
 
-const MessageRow = ({ message }) => (
-  <div
-    style={{
-      ...styles,
-      alignSelf: message.from === '-' ? 'flex-end' : 'flex-start',
-    }}
-  >
-    <Message message={message} />
-  </div>
-)
+const MessageRow = ({ message }) => {
+  const me = message.from === '-'
+  return (
+    <div
+      style={{
+        ...styles,
+        alignSelf: me ? 'flex-end' : 'flex-start',
+      }}
+    >
+      <Message message={message} me={me} />
+    </div>
+  )
+}
 
 MessageRow.propTypes = {
   message: PropTypes.object.isRequired,
