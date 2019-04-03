@@ -13,6 +13,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "cry": "battlecry g",
     "electron:prod": "electron .",
     "electron": "ELECTRON_START_URL=http://localhost:3000 electron .",
     "build-electron:no-target": "electron-packager . Ahoy --overwrite --out ./package/ --icon ./public/favicon.ico",
@@ -39,6 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "battlecry": "^0.3.4",
     "electron": "^4.1.0",
     "electron-packager": "^13.1.1",
     "enzyme": "^3.9.0",
