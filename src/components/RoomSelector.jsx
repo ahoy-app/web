@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import RoomBubble from './RoomBubble'
 import Spacer from './Spacer'
 
-import { color } from './style'
+import { color } from '../style'
 
 const styles = {
   background: color.main.dark,

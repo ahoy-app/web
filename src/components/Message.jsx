@@ -2,7 +2,7 @@ import React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 
-import { color, shadow } from './style'
+import { color, shadow } from '../style'
 
 const styles = {
   background: color.background.dark,
