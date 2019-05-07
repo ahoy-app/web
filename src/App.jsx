@@ -1,38 +1,47 @@
 import React from 'react'
-import Radium from 'radium'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 
-import Input from './components/Input'
-import Room from './components/Room'
-import RoomSelector from './components/RoomSelector'
-import Messages from './components/Messages'
-
-import { receiveNewMessages, fetchOldMessages } from './mocks/messages'
+import ChatApp from './layouts/ChatApp'
+import LogIn from './layouts/LogIn'
+import AuthCallback from './layouts/AuthCallback'
 
 const styles = {
   height: '100vh',
   width: '100vw',
-
-  display: 'flex',
 }
 
 const App = () => (
   <div style={styles}>
-    <RoomSelector rooms={['My', 'Chat']} />
-    <Room>
-      <Messages
-        messages={receiveNewMessages()}
-        fetchOldMessages={fetchOldMessages}
-      />
-      <Input
-        onChange={event => {
-          console.log('Updated text:' + event.target.value)
-        }}
-        onSend={() => {
-          console.log('Send click')
-        }}
-      />
-    </Room>
+    <Router>
+      <Switch>
+        <Route path="/login" exact component={LogIn} />
+        <Route
+          path="/logout"
+          exact
+          render={() => {
+            localStorage.removeItem('access_token')
+            return <Redirect to="/" />
+          }}
+        />
+        <Route path="/callback" exact component={AuthCallback} />
+        <Route
+          path="/"
+          render={() =>
+            localStorage.getItem('access_token') ? (
+              <ChatApp />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
+      </Switch>
+    </Router>
   </div>
 )
 
-export default Radium(App)
+export default App

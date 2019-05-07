@@ -17,10 +17,15 @@ const styles = {
   ...text.body,
 }
 
-const RoundButton = ({ onClick }) => <button style={styles} onClick={onClick} />
+const Button = ({ onClick, children }) => (
+  <button style={styles} onClick={onClick}>
+    {children}
+  </button>
+)
 
-RoundButton.propTypes = {
+Button.propTypes = {
   onClick: PropTypes.func.isRequired,
+  children: PropTypes.object,
 }
 
-export default Radium(RoundButton)
+export default Radium(Button)

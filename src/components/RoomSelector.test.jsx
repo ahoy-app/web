@@ -1,9 +1,9 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import RoomSelector from './RoomSelector'
 
-const rooms = ['mclarens', 'GNB']
+const rooms = [{ id: 'mclarens', name: 'mclarens' }, { id: 'GNB', name: 'GNB' }]
 
 let component
 
@@ -12,7 +12,7 @@ describe('RoomSelector', () => {
     if (component) component.unmount()
   })
   it('should render correctly', () => {
-    component = mount(<RoomSelector rooms={rooms} />)
+    component = shallow(<RoomSelector rooms={rooms} />)
     expect(component).toMatchSnapshot()
   })
 })

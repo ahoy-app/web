@@ -1,8 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import { color } from '../style'
+import T from './Text'
 
 const styles = {
   background: color.background.light,
@@ -17,13 +19,14 @@ const styles = {
 
 const RoomBubble = ({ room }) => (
   <div style={styles}>
-    {console.log(room)}
-    {room.charAt(0).toUpperCase()}
+    <Link to={`/${room.id}`} style={{ textDecoration: 'none' }}>
+      <T.title_2>{room.name.charAt(0).toUpperCase()}</T.title_2>
+    </Link>
   </div>
 )
 
 RoomBubble.propTypes = {
-  room: PropTypes.string.isRequired,
+  room: PropTypes.object.isRequired,
 }
 
 export default Radium(RoomBubble)

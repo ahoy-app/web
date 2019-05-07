@@ -18,7 +18,7 @@ const styles = {
 
 const Input = ({ onChange, onSend }) => (
   <div style={styles}>
-    <TextBox onChange={onChange} />
+    <TextBox onChange={onChange} onEnter={onSend} />
     <Spacer right={10} />
     <RoundButton onClick={onSend} />
   </div>
