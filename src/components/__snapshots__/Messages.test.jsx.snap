@@ -78,22 +78,59 @@ exports[`Messages should render correctly 1`] = `
                 "display": "flex",
                 "filter": "drop-shadow(2px 5px 2px #0003)",
                 "flexDirection": "column",
-                "minHeight": "40px",
+                "minHeight": "20px",
                 "padding": "5px 10px 5px 10px",
                 "width": "500px",
               }
             }
           >
-            <span
+            <Text-body
               key=".0"
             >
-              Barney
-            </span>
-            <span
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                Barney
+              </p>
+            </Text-body>
+            <Spacer
+              bottom={5}
               key=".1"
             >
-              It's gona be legend.. Whait for it!
-            </span>
+              <div
+                data-radium={true}
+                style={
+                  Object {
+                    "padding": "0px 0px 5px 0px",
+                  }
+                }
+              />
+            </Spacer>
+            <Text-body
+              key=".2"
+            >
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                It's gona be legend.. Whait for it!
+              </p>
+            </Text-body>
           </div>
         </Message>
       </div>
@@ -138,22 +175,59 @@ exports[`Messages should render correctly 1`] = `
                 "display": "flex",
                 "filter": "drop-shadow(2px 5px 2px #0003)",
                 "flexDirection": "column",
-                "minHeight": "40px",
+                "minHeight": "20px",
                 "padding": "5px 10px 5px 10px",
                 "width": "500px",
               }
             }
           >
-            <span
+            <Text-body
               key=".0"
             >
-              -
-            </span>
-            <span
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                -
+              </p>
+            </Text-body>
+            <Spacer
+              bottom={5}
               key=".1"
             >
-              See you later
-            </span>
+              <div
+                data-radium={true}
+                style={
+                  Object {
+                    "padding": "0px 0px 5px 0px",
+                  }
+                }
+              />
+            </Spacer>
+            <Text-body
+              key=".2"
+            >
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                See you later
+              </p>
+            </Text-body>
           </div>
         </Message>
       </div>
@@ -198,22 +272,59 @@ exports[`Messages should render correctly 1`] = `
                 "display": "flex",
                 "filter": "drop-shadow(2px 5px 2px #0003)",
                 "flexDirection": "column",
-                "minHeight": "40px",
+                "minHeight": "20px",
                 "padding": "5px 10px 5px 10px",
                 "width": "500px",
               }
             }
           >
-            <span
+            <Text-body
               key=".0"
             >
-              Barney
-            </span>
-            <span
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                Barney
+              </p>
+            </Text-body>
+            <Spacer
+              bottom={5}
               key=".1"
             >
-              ..dary! Legendary, Ted!
-            </span>
+              <div
+                data-radium={true}
+                style={
+                  Object {
+                    "padding": "0px 0px 5px 0px",
+                  }
+                }
+              />
+            </Spacer>
+            <Text-body
+              key=".2"
+            >
+              <p
+                style={
+                  Object {
+                    "color": "#000",
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
+                    "fontSize": "17px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                  }
+                }
+              >
+                ..dary! Legendary, Ted!
+              </p>
+            </Text-body>
           </div>
         </Message>
       </div>

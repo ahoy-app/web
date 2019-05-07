@@ -23,7 +23,7 @@ const styles = {
 const RoomSelector = ({ rooms }) => (
   <div style={styles}>
     {rooms.map(room => (
-      <Spacer top={5} bottom={5} key={room}>
+      <Spacer top={5} bottom={5} key={room.id}>
         <RoomBubble room={room} />
       </Spacer>
     ))}

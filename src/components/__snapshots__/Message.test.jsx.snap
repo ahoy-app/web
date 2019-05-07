@@ -11,21 +11,25 @@ exports[`Message should render correctly 1`] = `
       "display": "flex",
       "filter": "drop-shadow(2px 5px 2px #0003)",
       "flexDirection": "column",
-      "minHeight": "40px",
+      "minHeight": "20px",
       "padding": "5px 10px 5px 10px",
       "width": "500px",
     }
   }
 >
-  <span
+  <Text-body
     key=".0"
   >
     Ted
-  </span>
-  <span
+  </Text-body>
+  <Spacer
+    bottom={5}
     key=".1"
+  />
+  <Text-body
+    key=".2"
   >
     See you later
-  </span>
+  </Text-body>
 </div>
 `;

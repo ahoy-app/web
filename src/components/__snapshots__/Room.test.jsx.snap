@@ -12,5 +12,29 @@ exports[`Room should render correctly 1`] = `
       "width": "100%",
     }
   }
-/>
+>
+  <Messages
+    fetchOldMessages={[Function]}
+    key=".0"
+    messages={
+      Array [
+        Object {
+          "content": "aaa",
+          "from": "a",
+          "id": "1",
+        },
+        Object {
+          "content": "bbb",
+          "from": "b",
+          "id": "2",
+        },
+      ]
+    }
+  />
+  <Input
+    key=".1"
+    onChange={[Function]}
+    onSend={[Function]}
+  />
+</div>
 `;

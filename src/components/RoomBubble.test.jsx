@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 
 import RoomBubble from './RoomBubble'
 
-const room = 'mclarens'
+const room = { id: 'mclarens', name: 'mclareuns' }
 
 describe('RoomBubble', () => {
   it('should render correctly', () => {

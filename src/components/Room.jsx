@@ -1,7 +1,10 @@
 import React from 'react'
 import Radium from 'radium'
-import PropTypes from 'prop-types'
 
+import Input from '../components/Input'
+import Messages from '../components/Messages'
+
+import { receiveNewMessages, fetchOldMessages } from '../mocks/messages'
 import { color } from '../style'
 
 const styles = {
@@ -14,10 +17,21 @@ const styles = {
   flexDirection: 'column',
 }
 
-const Room = ({ children }) => <div style={styles}>{children}</div>
-
-Room.propTypes = {
-  children: PropTypes.array.isRequired,
-}
+const Room = () => (
+  <div style={styles}>
+    <Messages
+      messages={receiveNewMessages()}
+      fetchOldMessages={fetchOldMessages}
+    />
+    <Input
+      onChange={event => {
+        console.log('Updated text:' + event.target.value)
+      }}
+      onSend={() => {
+        console.log('Send click')
+      }}
+    />
+  </div>
+)
 
 export default Radium(Room)

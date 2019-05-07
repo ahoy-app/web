@@ -14,6 +14,17 @@ exports[`RoomBubble should render correctly 1`] = `
     }
   }
 >
-  M
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/mclarens"
+  >
+    <Text-title_2>
+      M
+    </Text-title_2>
+  </Link>
 </div>
 `;

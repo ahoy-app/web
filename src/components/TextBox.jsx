@@ -2,12 +2,12 @@ import React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 
-import { color } from '../style'
+import { color, text } from '../style'
 
 const styles = {
   background: color.background.dark,
   height: '40px',
-  // width: '100%',
+  width: '100%',
   flex: 1,
 
   borderRadius: '1rem',
@@ -17,19 +17,25 @@ const styles = {
   padding: '0px 10px 0px 10px',
   boxSizing: 'border-box',
 
-  lineHeight: '2rem',
-  fontSize: '1em',
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+  color: 'black',
+
+  ...text.body,
 }
 
-const TextBox = ({ value, onChange }) => (
-  <input style={styles} value={value} onChange={onChange} />
+const TextBox = ({ value, onChange, onEnter }) => (
+  <input
+    type="text"
+    style={styles}
+    value={value}
+    onChange={onChange}
+    onKeyDown={e => (e.key === 'Enter' ? onEnter() : null)}
+  />
 )
 
 TextBox.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  onEnter: PropTypes.func,
 }
 
 export default Radium(TextBox)
