@@ -2,8 +2,10 @@ import React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 
+import { color } from '../style'
+
 const styles = {
-  background: 'linear-gradient(135deg, #cee 0%, #08a 100%)',
+  background: color.background.light,
 
   height: '100%',
   width: '100%',

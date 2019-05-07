@@ -6,7 +6,7 @@ exports[`TextBox should render correctly 1`] = `
   onChange={[Function]}
   style={
     Object {
-      "backgroundColor": "white",
+      "background": "#eee",
       "border": "none",
       "borderRadius": "1rem",
       "boxSizing": "border-box",

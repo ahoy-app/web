@@ -2,8 +2,10 @@ import React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 
+import { color } from '../style'
+
 const styles = {
-  backgroundColor: 'white',
+  background: color.background.dark,
   height: '40px',
 
   minWidth: '40px',

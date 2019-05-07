@@ -11,7 +11,7 @@ const message = {
 
 describe('Message', () => {
   it('should render correctly', () => {
-    const component = shallow(<Message message={message} />)
+    const component = shallow(<Message message={message} me={false} />)
     expect(component).toMatchSnapshot()
   })
 })

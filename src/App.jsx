@@ -9,7 +9,6 @@ import Messages from './components/Messages'
 import { receiveNewMessages, fetchOldMessages } from './mocks/messages'
 
 const styles = {
-  backgroundColor: 'yellow',
   height: '100vh',
   width: '100vw',
 

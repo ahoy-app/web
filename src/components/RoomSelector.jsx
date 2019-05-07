@@ -5,8 +5,10 @@ import PropTypes from 'prop-types'
 import RoomBubble from './RoomBubble'
 import Spacer from './Spacer'
 
+import { color } from '../style'
+
 const styles = {
-  background: 'linear-gradient(45deg, #045 0%, #9bb 100%)',
+  background: color.main.dark,
   height: '100%',
   width: '45px',
 
