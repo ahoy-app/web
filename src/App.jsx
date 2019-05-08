@@ -6,6 +6,9 @@ import {
   Redirect,
 } from 'react-router-dom'
 
+import { Provider } from 'react-redux'
+import store from './redux/store'
+
 import ChatApp from './layouts/ChatApp'
 import LogIn from './layouts/LogIn'
 import AuthCallback from './layouts/AuthCallback'
@@ -17,30 +20,32 @@ const styles = {
 
 const App = () => (
   <div style={styles}>
-    <Router>
-      <Switch>
-        <Route path="/login" exact component={LogIn} />
-        <Route
-          path="/logout"
-          exact
-          render={() => {
-            localStorage.removeItem('access_token')
-            return <Redirect to="/" />
-          }}
-        />
-        <Route path="/callback" exact component={AuthCallback} />
-        <Route
-          path="/"
-          render={() =>
-            localStorage.getItem('access_token') ? (
-              <ChatApp />
-            ) : (
-              <Redirect to="/login" />
-            )
-          }
-        />
-      </Switch>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Switch>
+          <Route path="/login" exact component={LogIn} />
+          {/*<Route
+            path="/logout"
+            exact
+            render={() => {
+              localStorage.removeItem('access_token')
+              return <Redirect to="/" />
+            }}
+          />*/}
+          <Route path="/callback" exact component={AuthCallback} />
+          <Route
+            path="/"
+            render={() =>
+              localStorage.getItem('access_token') ? (
+                <ChatApp />
+              ) : (
+                <Redirect to="/login" />
+              )
+            }
+          />
+        </Switch>
+      </Router>
+    </Provider>
   </div>
 )
 

@@ -28,8 +28,12 @@ function ghLogin(history) {
 
   window.addEventListener('message', function(event) {
     console.log(event.data)
-    localStorage.setItem('access_token', event.data.access_token)
-    localStorage.setItem('secret', event.data.secret)
+    if (event.data.access_token) {
+      localStorage.setItem('access_token', event.data.access_token)
+    }
+    if (event.data.secret) {
+      localStorage.setItem('secret', event.data.secret)
+    }
     popup.close()
     history.push('/')
   })
