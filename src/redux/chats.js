@@ -1,8 +1,11 @@
-import { takeLatest, put, call } from 'redux-saga/effects'
+import { takeLatest, take, put, call } from 'redux-saga/effects'
+import { eventChannel } from 'redux-saga'
 import * as RoomApi from '../api/room'
+import Events, { EVENT_KEYS } from '../api/events'
 
 // Actions
 
+const LISTEN_EVENTS = 'ahoy/chats/LISTEN_EVENTS'
 const FETCH_ROOM_LIST = 'ahoy/chats/FETCH_ROOM_LIST'
 const SET_ROOM_LIST = 'ahoy/chats/SET_ROOM_LIST'
 const FETCH_ROOM = 'ahoy/chats/FETCH_ROOM'
@@ -43,6 +46,7 @@ export default function reducer(state = default_state, { type, payload }) {
 
 // Action Creators
 
+export const listenEvents = () => ({ type: LISTEN_EVENTS })
 export const fetchRoomList = () => ({ type: FETCH_ROOM_LIST })
 export const setRoomList = roomList => ({
   type: SET_ROOM_LIST,
@@ -101,7 +105,32 @@ function* fetchMessagesSaga({ payload }) {
   }
 }
 
+// const eventEmiter = () => {
+//   const events = new Events()
+//   events.on(EVENT_KEYS.new_message, () => ({ type: 'PLACEHOLDER' }))
+//
+//   return eventChannel(events.channel)
+// }
+
+function* eventsSaga() {
+  try {
+    const events = new Events()
+    events.on(EVENT_KEYS.new_message, () => ({ type: 'PLACEHOLDER' }))
+
+    const channel = yield eventChannel(events.getChannel())
+
+    while (true) {
+      const action = yield take(channel)
+      console.log(action)
+      // yield put(action)
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 export const sagas = [
+  takeLatest(LISTEN_EVENTS, eventsSaga),
   takeLatest(FETCH_ROOM_LIST, fetchRoomListSaga),
   takeLatest(FETCH_ROOM, fetchRoomSaga),
   takeLatest(FETCH_MESSAGES, fetchMessagesSaga),

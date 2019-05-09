@@ -1,4 +1,5 @@
-export const API_HOST = process.env.API_HOST || 'http://localhost:8080'
+export const API_HOST = process.env.API_HOST || 'localhost:8080'
+export const API_HTTP_ENDPOINT = `http://${API_HOST}`
 
 const headers = extras => ({
   'Content-Type': 'application/x-www-form-urlencoded',
@@ -8,7 +9,7 @@ const headers = extras => ({
 })
 
 export async function get(path) {
-  const response = await fetch(`${API_HOST}${path}`, {
+  const response = await fetch(`${API_HTTP_ENDPOINT}${path}`, {
     headers: headers(),
   })
   if (!response.ok) {
@@ -18,7 +19,7 @@ export async function get(path) {
 }
 
 export async function post(path, body) {
-  const response = await fetch(`${API_HOST}${path}`, {
+  const response = await fetch(`${API_HTTP_ENDPOINT}${path}`, {
     headers: headers(),
     body,
   })
