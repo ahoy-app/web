@@ -23,7 +23,7 @@ const Messages = ({ messages, fetchOldMessages }) => {
 
   useEffect(() => {
     anchorEl.current.scrollIntoView({ behavior: 'smooth' })
-  }, messages)
+  }, messages.length)
 
   const _onScroll = () => {
     if (boxEl.current.scrollTop === 0) {

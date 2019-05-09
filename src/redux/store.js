@@ -12,7 +12,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(sagaMiddleware))
 )
 
-console.log([...chatsSagas])
 function* rootSaga() {
   yield all([...chatsSagas])
 }

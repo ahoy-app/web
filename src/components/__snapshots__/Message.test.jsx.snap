@@ -2,7 +2,6 @@
 
 exports[`Message should render correctly 1`] = `
 <div
-  data-radium={true}
   style={
     Object {
       "background": "#fff",
@@ -17,18 +16,13 @@ exports[`Message should render correctly 1`] = `
     }
   }
 >
-  <Text-body
-    key=".0"
-  >
+  <Text-body>
     Ted
   </Text-body>
   <Spacer
     bottom={5}
-    key=".1"
   />
-  <Text-body
-    key=".2"
-  >
+  <Text-body>
     See you later
   </Text-body>
 </div>

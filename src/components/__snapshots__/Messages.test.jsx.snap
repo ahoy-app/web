@@ -49,7 +49,6 @@ exports[`Messages should render correctly 1`] = `
       }
     >
       <div
-        data-radium={true}
         style={
           Object {
             "alignSelf": "flex-start",
@@ -69,7 +68,6 @@ exports[`Messages should render correctly 1`] = `
           }
         >
           <div
-            data-radium={true}
             style={
               Object {
                 "background": "#fff",
@@ -84,9 +82,7 @@ exports[`Messages should render correctly 1`] = `
               }
             }
           >
-            <Text-body
-              key=".0"
-            >
+            <Text-body>
               <p
                 style={
                   Object {
@@ -103,10 +99,8 @@ exports[`Messages should render correctly 1`] = `
             </Text-body>
             <Spacer
               bottom={5}
-              key=".1"
             >
               <div
-                data-radium={true}
                 style={
                   Object {
                     "padding": "0px 0px 5px 0px",
@@ -114,9 +108,7 @@ exports[`Messages should render correctly 1`] = `
                 }
               />
             </Spacer>
-            <Text-body
-              key=".2"
-            >
+            <Text-body>
               <p
                 style={
                   Object {
@@ -146,7 +138,6 @@ exports[`Messages should render correctly 1`] = `
       }
     >
       <div
-        data-radium={true}
         style={
           Object {
             "alignSelf": "flex-end",
@@ -166,7 +157,6 @@ exports[`Messages should render correctly 1`] = `
           }
         >
           <div
-            data-radium={true}
             style={
               Object {
                 "background": "#cef",
@@ -181,9 +171,7 @@ exports[`Messages should render correctly 1`] = `
               }
             }
           >
-            <Text-body
-              key=".0"
-            >
+            <Text-body>
               <p
                 style={
                   Object {
@@ -200,10 +188,8 @@ exports[`Messages should render correctly 1`] = `
             </Text-body>
             <Spacer
               bottom={5}
-              key=".1"
             >
               <div
-                data-radium={true}
                 style={
                   Object {
                     "padding": "0px 0px 5px 0px",
@@ -211,9 +197,7 @@ exports[`Messages should render correctly 1`] = `
                 }
               />
             </Spacer>
-            <Text-body
-              key=".2"
-            >
+            <Text-body>
               <p
                 style={
                   Object {
@@ -243,7 +227,6 @@ exports[`Messages should render correctly 1`] = `
       }
     >
       <div
-        data-radium={true}
         style={
           Object {
             "alignSelf": "flex-start",
@@ -263,7 +246,6 @@ exports[`Messages should render correctly 1`] = `
           }
         >
           <div
-            data-radium={true}
             style={
               Object {
                 "background": "#fff",
@@ -278,9 +260,7 @@ exports[`Messages should render correctly 1`] = `
               }
             }
           >
-            <Text-body
-              key=".0"
-            >
+            <Text-body>
               <p
                 style={
                   Object {
@@ -297,10 +277,8 @@ exports[`Messages should render correctly 1`] = `
             </Text-body>
             <Spacer
               bottom={5}
-              key=".1"
             >
               <div
-                data-radium={true}
                 style={
                   Object {
                     "padding": "0px 0px 5px 0px",
@@ -308,9 +286,7 @@ exports[`Messages should render correctly 1`] = `
                 }
               />
             </Spacer>
-            <Text-body
-              key=".2"
-            >
+            <Text-body>
               <p
                 style={
                   Object {

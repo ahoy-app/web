@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import TextBox from './TextBox'
@@ -29,4 +28,4 @@ Input.propTypes = {
   onSend: PropTypes.func.isRequired,
 }
 
-export default Radium(Input)
+export default Input

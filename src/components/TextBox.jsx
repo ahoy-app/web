@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import { color, text } from '../style'
@@ -38,4 +37,4 @@ TextBox.propTypes = {
   onEnter: PropTypes.func,
 }
 
-export default Radium(TextBox)
+export default TextBox

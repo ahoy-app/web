@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
@@ -29,4 +28,4 @@ RoomBubble.propTypes = {
   room: PropTypes.object.isRequired,
 }
 
-export default Radium(RoomBubble)
+export default RoomBubble

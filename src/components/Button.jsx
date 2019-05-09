@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import { color, text } from '../style'
@@ -28,4 +27,4 @@ Button.propTypes = {
   children: PropTypes.object,
 }
 
-export default Radium(Button)
+export default Button

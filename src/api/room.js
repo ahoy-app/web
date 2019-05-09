@@ -1,6 +1,5 @@
 import { get } from './utils'
 export async function getRooms() {
-  console.log('YAY')
   const result = await get(`/rooms`)
   return result.rooms
 }
@@ -8,4 +7,9 @@ export async function getRooms() {
 export async function getRoom(roomId) {
   const room = await get(`/room/${roomId}`)
   return room
+}
+
+export async function getMessages(roomId) {
+  const messages = await get(`/room/${roomId}/messages`)
+  return messages
 }

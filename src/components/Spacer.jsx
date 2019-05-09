@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 const Spacer = ({ top = 0, bottom = 0, left = 0, right = 0, children }) => (
@@ -16,4 +15,4 @@ Spacer.propTypes = {
   children: PropTypes.object,
 }
 
-export default Radium(Spacer)
+export default Spacer

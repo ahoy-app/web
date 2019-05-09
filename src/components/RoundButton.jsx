@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import { color, text } from '../style'
@@ -23,4 +22,4 @@ RoundButton.propTypes = {
   onClick: PropTypes.func.isRequired,
 }
 
-export default Radium(RoundButton)
+export default RoundButton

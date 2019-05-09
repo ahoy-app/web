@@ -7,29 +7,37 @@ const FETCH_ROOM_LIST = 'ahoy/chats/FETCH_ROOM_LIST'
 const SET_ROOM_LIST = 'ahoy/chats/SET_ROOM_LIST'
 const FETCH_ROOM = 'ahoy/chats/FETCH_ROOM'
 const SET_ROOM = 'ahoy/chats/SET_ROOM'
+const FETCH_MESSAGES = 'ahoy/chats/FETCH_MESSAGES'
+const SET_MESSAGES = 'ahoy/chats/SET_MESSAGES'
 
 // Default state
 
 const default_state = {
   rooms: [],
   room_info: {},
+  messages: {},
 }
 
 // Reducer
 export default function reducer(state = default_state, { type, payload }) {
   switch (type) {
-    case SET_ROOM_LIST:
-      return { ...state, rooms: payload.roomList }
-    case SET_ROOM:
-      return {
-        ...state,
-        room_info: {
-          ...state.room_info,
-          [payload.room.id]: payload.room,
-        },
-      }
-    default:
+    case SET_ROOM_LIST: {
+      const { roomList } = payload
+      return Object.assign({}, state, { rooms: roomList })
+    }
+    case SET_ROOM: {
+      const { room } = payload
+      const new_room_info = { ...state.room_info, [room.id]: room }
+      return Object.assign({}, state, { room_info: new_room_info })
+    }
+    case SET_MESSAGES: {
+      const { roomId, messages } = payload
+      const new_messages = { ...state.messages, [roomId]: messages }
+      return Object.assign({}, state, { messages: new_messages })
+    }
+    default: {
       return state
+    }
   }
 }
 
@@ -48,21 +56,27 @@ export const setRoom = room => ({
   type: SET_ROOM,
   payload: { room },
 })
+export const fetchMessages = roomId => ({
+  type: FETCH_MESSAGES,
+  payload: { roomId },
+})
+export const setMessages = (roomId, messages) => ({
+  type: SET_MESSAGES,
+  payload: { roomId, messages },
+})
 
 //Selectors
 
 export const allRoomsSelector = state => state.chats.rooms
-export const allRoomsIdSelector = state => Object.keys(state.chats.rooms)
-export const roomSelector = (state, props) =>
-  allRoomsSelector(state)[props.roomId]
-
+export const roomSelector = (state, roomId) => state.chats.room_info[roomId]
+export const messagesSelector = (state, roomId) => {
+  return state.chats.messages[roomId]
+}
 // Side effects, only as applicable
 
 function* fetchRoomListSaga() {
   try {
     const roomList = yield call(RoomApi.getRooms)
-    console.log(roomList)
-
     yield put(setRoomList(roomList))
   } catch (e) {
     console.error(e)
@@ -78,7 +92,17 @@ function* fetchRoomSaga({ payload }) {
   }
 }
 
+function* fetchMessagesSaga({ payload }) {
+  try {
+    const messages = yield call(RoomApi.getMessages, payload.roomId)
+    yield put(setMessages(payload.roomId, messages))
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 export const sagas = [
   takeLatest(FETCH_ROOM_LIST, fetchRoomListSaga),
   takeLatest(FETCH_ROOM, fetchRoomSaga),
+  takeLatest(FETCH_MESSAGES, fetchMessagesSaga),
 ]

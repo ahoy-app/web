@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import { Route } from 'react-router-dom'
 
 import Room from '../components/Room'
@@ -23,4 +22,4 @@ const ChatApp = () => (
   </div>
 )
 
-export default Radium(ChatApp)
+export default ChatApp

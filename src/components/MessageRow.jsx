@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import Message from './Message'
@@ -29,4 +28,4 @@ MessageRow.propTypes = {
   message: PropTypes.object.isRequired,
 }
 
-export default Radium(MessageRow)
+export default MessageRow

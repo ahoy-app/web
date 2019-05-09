@@ -2,7 +2,6 @@
 
 exports[`TextBox should render correctly 1`] = `
 <input
-  data-radium={true}
   onChange={[Function]}
   onKeyDown={[Function]}
   style={

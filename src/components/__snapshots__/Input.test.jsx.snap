@@ -6,7 +6,6 @@ exports[`Input should render correctly 1`] = `
   onSend={[Function]}
 >
   <div
-    data-radium={true}
     style={
       Object {
         "boxSizing": "border-box",
@@ -17,12 +16,10 @@ exports[`Input should render correctly 1`] = `
     }
   >
     <TextBox
-      key=".0"
       onChange={[Function]}
       onEnter={[Function]}
     >
       <input
-        data-radium={true}
         onChange={[Function]}
         onKeyDown={[Function]}
         style={
@@ -47,11 +44,9 @@ exports[`Input should render correctly 1`] = `
       />
     </TextBox>
     <Spacer
-      key=".1"
       right={10}
     >
       <div
-        data-radium={true}
         style={
           Object {
             "padding": "0px 10px 0px 0px",
@@ -60,11 +55,9 @@ exports[`Input should render correctly 1`] = `
       />
     </Spacer>
     <RoundButton
-      key=".2"
       onClick={[Function]}
     >
       <button
-        data-radium={true}
         onClick={[Function]}
         style={
           Object {

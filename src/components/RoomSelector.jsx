@@ -1,6 +1,8 @@
-import React from 'react'
-import Radium from 'radium'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+
+import { connect } from 'react-redux'
+import { allRoomsSelector, fetchRoomList } from '../redux/chats'
 
 import RoomBubble from './RoomBubble'
 import Spacer from './Spacer'
@@ -20,18 +22,34 @@ const styles = {
   alignItems: 'center',
 }
 
-const RoomSelector = ({ rooms }) => (
-  <div style={styles}>
-    {rooms.map(room => (
-      <Spacer top={5} bottom={5} key={room.id}>
-        <RoomBubble room={room} />
-      </Spacer>
-    ))}
-  </div>
-)
+const RoomSelector = ({ rooms, fetchRooms }) => {
+  useEffect(() => {
+    fetchRooms()
+  }, [])
+  return (
+    <div style={styles}>
+      {rooms.map(room => (
+        <Spacer top={5} bottom={5} key={room.id}>
+          <RoomBubble room={room} />
+        </Spacer>
+      ))}
+    </div>
+  )
+}
 
 RoomSelector.propTypes = {
   rooms: PropTypes.array.isRequired,
+  fetchRooms: PropTypes.func,
 }
 
-export default Radium(RoomSelector)
+const mapStateToProps = state => ({
+  rooms: allRoomsSelector(state),
+})
+const mapDispatchToProps = dispatch => ({
+  fetchRooms: () => dispatch(fetchRoomList()),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RoomSelector)

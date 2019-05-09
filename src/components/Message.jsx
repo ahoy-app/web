@@ -1,5 +1,4 @@
 import React from 'react'
-import Radium from 'radium'
 import PropTypes from 'prop-types'
 
 import { color, shadow } from '../style'
@@ -24,12 +23,10 @@ const styles = {
 
 const Message = ({ message, me }) => (
   <div
-    style={[
-      styles,
-      {
-        background: me ? color.background.color : color.background.light,
-      },
-    ]}
+    style={{
+      ...styles,
+      background: me ? color.background.color : color.background.light,
+    }}
   >
     <T.body>{message.from}</T.body>
     <Spacer bottom={5} />
@@ -42,4 +39,4 @@ Message.propTypes = {
   me: PropTypes.bool.isRequired,
 }
 
-export default Radium(Message)
+export default Message

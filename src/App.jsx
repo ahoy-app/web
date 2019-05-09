@@ -35,7 +35,7 @@ const App = () => (
           <Route path="/callback" exact component={AuthCallback} />
           <Route
             path="/"
-            render={() =>
+            component={() =>
               localStorage.getItem('access_token') ? (
                 <ChatApp />
               ) : (

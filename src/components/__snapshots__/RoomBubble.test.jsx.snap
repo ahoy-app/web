@@ -2,7 +2,6 @@
 
 exports[`RoomBubble should render correctly 1`] = `
 <div
-  data-radium={true}
   style={
     Object {
       "background": "#fff",
