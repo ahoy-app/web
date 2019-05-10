@@ -12,6 +12,8 @@ const FETCH_ROOM = 'ahoy/chats/FETCH_ROOM'
 const SET_ROOM = 'ahoy/chats/SET_ROOM'
 const FETCH_MESSAGES = 'ahoy/chats/FETCH_MESSAGES'
 const SET_MESSAGES = 'ahoy/chats/SET_MESSAGES'
+const SEND_MESSAGE = 'ahoy/chats/SEND_MESSAGE'
+const ADD_NEW_MESSAGE = 'ahoy/chats/ADD_NEW_MESSAGE'
 
 // Default state
 
@@ -36,6 +38,16 @@ export default function reducer(state = default_state, { type, payload }) {
     case SET_MESSAGES: {
       const { roomId, messages } = payload
       const new_messages = { ...state.messages, [roomId]: messages }
+      return Object.assign({}, state, { messages: new_messages })
+    }
+    case ADD_NEW_MESSAGE: {
+      const { message } = payload
+      const room_messages = state.messages[message.to]
+      room_messages.unshift(message)
+      const new_messages = {
+        ...state.messages,
+        [message.to]: Object.assign([], room_messages),
+      }
       return Object.assign({}, state, { messages: new_messages })
     }
     default: {
@@ -68,6 +80,14 @@ export const setMessages = (roomId, messages) => ({
   type: SET_MESSAGES,
   payload: { roomId, messages },
 })
+export const sendMessage = (roomId, message) => ({
+  type: SET_MESSAGES,
+  payload: { roomId, message },
+})
+export const addNewMessage = message => ({
+  type: ADD_NEW_MESSAGE,
+  payload: { message },
+})
 
 // Selectors
 
@@ -78,6 +98,15 @@ export const messagesSelector = (state, roomId) => {
 }
 
 // Side effects, only as applicable
+
+function* loggedSaga() {
+  try {
+    yield put(listenEvents())
+    yield put(fetchRoomList())
+  } catch (e) {
+    console.error(e)
+  }
+}
 
 function* fetchRoomListSaga() {
   try {
@@ -106,24 +135,32 @@ function* fetchMessagesSaga({ payload }) {
   }
 }
 
-// const eventEmiter = () => {
-//   const events = new Events()
-//   events.on(EVENT_KEYS.new_message, () => ({ type: 'PLACEHOLDER' }))
-//
-//   return eventChannel(events.channel)
-// }
+/*
+{
+type: 'ahoy/chats/SEND_MESSAGE',
+payload: { roomId: 'bc984df0', message: 'Me encanta' }
+}
+*/
+function* sendMessageSaga({ payload }) {
+  try {
+    const { roomId, message } = payload
+    yield call(RoomApi.sendMessage, roomId, message)
+  } catch (e) {
+    console.error(e)
+  }
+}
 
 function* eventsSaga() {
   try {
     const events = new Events()
-    events.on(EVENT_KEYS.new_message, () => ({ type: 'PLACEHOLDER' }))
+    events.on(EVENT_KEYS.new_message, ({ body }) => addNewMessage(body))
 
     const channel = yield eventChannel(events.getChannel())
 
     while (true) {
       const action = yield take(channel)
       console.log(action)
-      // yield put(action)
+      yield put(action)
     }
   } catch (e) {
     console.error(e)
@@ -131,8 +168,10 @@ function* eventsSaga() {
 }
 
 export const sagas = [
+  takeLatest('ahoy/user/LOGED_IN', loggedSaga),
   takeLatest(LISTEN_EVENTS, eventsSaga),
   takeLatest(FETCH_ROOM_LIST, fetchRoomListSaga),
   takeLatest(FETCH_ROOM, fetchRoomSaga),
   takeLatest(FETCH_MESSAGES, fetchMessagesSaga),
+  takeLatest(SEND_MESSAGE, sendMessageSaga),
 ]

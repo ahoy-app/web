@@ -8,6 +8,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
 p,
 h1,
 h2,

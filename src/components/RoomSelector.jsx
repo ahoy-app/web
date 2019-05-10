@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { allRoomsSelector, fetchRoomList } from '../redux/chats'
+import { allRoomsSelector } from '../redux/chats'
 
 import RoomBubble from './RoomBubble'
-import Spacer from './Spacer'
+import UserBubble from './UserBubble'
 
 import { color } from '../style'
 
@@ -22,20 +22,18 @@ const styles = {
   alignItems: 'center',
 }
 
-const RoomSelector = ({ rooms, fetchRooms }) => {
-  useEffect(() => {
-    fetchRooms()
-  }, [])
-  return (
-    <div style={styles}>
-      {rooms.map(room => (
-        <Spacer top={5} bottom={5} key={room.id}>
-          <RoomBubble room={room} />
-        </Spacer>
-      ))}
+const RoomSelector = ({ rooms }) => (
+  <div style={styles}>
+    {rooms.map(room => (
+      <div style={{ margin: '5px' }} key={room.id}>
+        <RoomBubble room={room} />
+      </div>
+    ))}
+    <div style={{ marginTop: 'auto', marginBottom: '5px' }}>
+      <UserBubble />
     </div>
-  )
-}
+  </div>
+)
 
 RoomSelector.propTypes = {
   rooms: PropTypes.array.isRequired,
@@ -45,11 +43,5 @@ RoomSelector.propTypes = {
 const mapStateToProps = state => ({
   rooms: allRoomsSelector(state),
 })
-const mapDispatchToProps = dispatch => ({
-  fetchRooms: () => dispatch(fetchRoomList()),
-})
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(RoomSelector)
+export default connect(mapStateToProps)(RoomSelector)

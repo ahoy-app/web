@@ -1,52 +1,56 @@
-import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom'
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { Provider } from 'react-redux'
-import store from './redux/store'
+import { connect } from 'react-redux'
+import { load, loadingSelector, userSelector } from './redux/user'
 
 import ChatApp from './layouts/ChatApp'
 import LogIn from './layouts/LogIn'
 import AuthCallback from './layouts/AuthCallback'
 
-const styles = {
-  height: '100vh',
-  width: '100vw',
+// const styles = {
+//   height: '100vh',
+//   width: '100vw',
+// }
+
+const LoadedApp = ({ user }) => {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/callback" exact component={AuthCallback} />
+        <Route path="/" component={() => (user ? <ChatApp /> : <LogIn />)} />
+      </Switch>
+    </Router>
+  )
 }
 
-const App = () => (
-  <div style={styles}>
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route path="/login" exact component={LogIn} />
-          {/*<Route
-            path="/logout"
-            exact
-            render={() => {
-              localStorage.removeItem('access_token')
-              return <Redirect to="/" />
-            }}
-          />*/}
-          <Route path="/callback" exact component={AuthCallback} />
-          <Route
-            path="/"
-            component={() =>
-              localStorage.getItem('access_token') ? (
-                <ChatApp />
-              ) : (
-                <Redirect to="/login" />
-              )
-            }
-          />
-        </Switch>
-      </Router>
-    </Provider>
-  </div>
-)
+LoadedApp.propTypes = {
+  user: PropTypes.object,
+}
 
-export default App
+const App = ({ load, loading, user }) => {
+  useEffect(() => {
+    load()
+  }, [])
+  return loading ? <>Loading</> : <LoadedApp user={user} />
+}
+
+const mapStateToProps = state => ({
+  loading: loadingSelector(state),
+  user: userSelector(state),
+})
+const mapDispatchToProps = dispatch => ({
+  load: () => dispatch(load()),
+})
+
+App.propTypes = {
+  load: PropTypes.func,
+  loading: PropTypes.bool,
+  user: PropTypes.object,
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

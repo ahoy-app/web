@@ -25,7 +25,6 @@ class Events {
     const ws = this._openWebSocket()
     return emitter => {
       ws.onmessage = message => {
-        console.log('Received', message)
         const { key, body } = JSON.parse(message.data)
         const result = this.callbacks.find(({ regex }) => key.match(regex))
 
