@@ -1,41 +1,93 @@
-const SIGNUP_REQUEST = 'AUTH/SIGNUP_REQUEST'
-const SIGNUP_SUCCESS = 'AUTH/SIGNUP_SUCCESS'
-const SIGNUP_FAILURE = 'AUTH/SIGNUP_FAILURE'
-const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
-const LOGIN_SUCCESS = 'AUTH/LOGIN_SUCCESS'
-const LOGIN_FAILURE = 'AUTH/LOGIN_FAILURE'
-const LOGOUT = 'AUTH/LOGOUT'
+import { takeLatest, put, call } from 'redux-saga/effects'
+
+import * as UserApi from '../api/user'
+// Actions
+
+const GH_LOG_IN = 'ahoy/user/GH_LOG_IN'
+const LOG_IN = 'ahoy/user/LOG_IN'
+const LOG_OUT = 'ahoy/user/LOG_OUT'
+const GET_INFO = 'ahoy/user/GET_INFO'
+const SET_INFO = 'ahoy/user/SET_INFO'
+
+// Default state
 
 const initialState = {
-  user: null,
-  isLoading: false,
-  error: null,
+  user: {},
 }
 
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case SIGNUP_REQUEST:
-    case LOGIN_REQUEST:
-      return { ...state, isLoading: true, error: null }
-
-    case SIGNUP_SUCCESS:
-    case LOGIN_SUCCESS:
-      return { ...state, isLoading: false, user: action.user }
-
-    case SIGNUP_FAILURE:
-    case LOGIN_FAILURE:
-      return { ...state, isLoading: false, error: action.error }
-
-    case LOGOUT:
-      return { ...state, user: null }
-
-    default:
+// Reducer
+export default function reducer(state = initialState, { type, payload }) {
+  switch (type) {
+    case SET_INFO: {
+      const { user } = payload
+      return { ...state, user }
+    }
+    default: {
       return state
+    }
   }
 }
 
-export const actions = {
-  signup: (email, password) => ({ type: SIGNUP_REQUEST, email, password }),
-  login: (email, password) => ({ type: LOGIN_REQUEST, email, password }),
-  logout: () => ({ type: LOGOUT }),
+// Action Creators
+
+export const ghLogin = () => ({ type: GH_LOG_IN })
+export const login = (user, secret) => ({
+  type: LOG_IN,
+  payload: { user, secret },
+})
+export const logOut = () => ({ type: LOG_OUT })
+export const getInfo = () => ({ type: GET_INFO })
+export const setInfo = user => ({ type: SET_INFO, payload: { user } })
+
+// Selectors
+
+export const userSelector = state => state.user.user
+
+// Side effects, only as applicable
+
+function* ghLoginSaga() {
+  try {
+    const { access_token, secret } = yield call(UserApi.ghLogin)
+
+    if (access_token && secret) {
+      localStorage.setItem('access_token', access_token)
+      localStorage.setItem('secret', secret)
+
+      const user = yield call(UserApi.getUser)
+
+      yield put(setInfo(user))
+    }
+  } catch (e) {
+    console.error(e)
+  }
 }
+function* logInSaga({ payload }) {
+  const { user, secret } = payload
+  try {
+    const { access_token } = yield call(UserApi.logIn, user, secret)
+
+    if (access_token) {
+      localStorage.setItem('access_token', access_token)
+      localStorage.setItem('secret', secret)
+
+      const user = yield call(UserApi.getUser)
+
+      yield put(setInfo(user))
+    }
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+function* logOutSaga() {
+  localStorage.removeItem('access_token')
+  localStorage.removeItem('secret')
+
+  yield put(setInfo({}))
+}
+
+export const sagas = [
+  takeLatest(GH_LOG_IN, ghLoginSaga),
+  takeLatest(LOG_IN, logInSaga),
+  takeLatest(LOG_OUT, logOutSaga),
+]

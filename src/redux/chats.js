@@ -69,13 +69,14 @@ export const setMessages = (roomId, messages) => ({
   payload: { roomId, messages },
 })
 
-//Selectors
+// Selectors
 
 export const allRoomsSelector = state => state.chats.rooms
 export const roomSelector = (state, roomId) => state.chats.room_info[roomId]
 export const messagesSelector = (state, roomId) => {
   return state.chats.messages[roomId]
 }
+
 // Side effects, only as applicable
 
 function* fetchRoomListSaga() {
