@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { downloadLink } from '../api/utils'
 import { color, shadow } from '../style'
 import T from './Text'
 import Spacer from './Spacer'
@@ -21,6 +22,20 @@ const styles = {
   filter: shadow.light,
 }
 
+const AttachmentMessage = ({ message }) => (
+  <a href={downloadLink(message)}>Download</a>
+)
+
+AttachmentMessage.propTypes = {
+  message: PropTypes.object.isRequired,
+}
+
+const TextMessage = ({ message }) => <T.body>{message.content}</T.body>
+
+TextMessage.propTypes = {
+  message: PropTypes.object.isRequired,
+}
+
 const Message = ({ message, me }) => (
   <div
     style={{
@@ -30,7 +45,11 @@ const Message = ({ message, me }) => (
   >
     <T.body>{message.from}</T.body>
     <Spacer bottom={5} />
-    <T.body>{message.content}</T.body>
+    {message.type == 'text' ? (
+      <TextMessage message={message} />
+    ) : (
+      <AttachmentMessage message={message} />
+    )}
   </div>
 )
 

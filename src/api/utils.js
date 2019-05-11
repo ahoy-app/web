@@ -10,6 +10,7 @@ const headers = extras => ({
 
 export async function get(path) {
   const response = await fetch(`${API_HTTP_ENDPOINT}${path}`, {
+    method: 'GET',
     headers: headers(),
   })
   if (!response.ok) {
@@ -29,3 +30,8 @@ export async function post(path, body, extraHeaders = {}) {
   }
   return await response.json() //we only get here if there is no error
 }
+
+export const downloadLink = message =>
+  `${API_HTTP_ENDPOINT}/room/${message.to}/file/${
+    message.content
+  }?token=${localStorage.getItem('access_token')}`

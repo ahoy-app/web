@@ -22,8 +22,14 @@ exports[`Message should render correctly 1`] = `
   <Spacer
     bottom={5}
   />
-  <Text-body>
-    See you later
-  </Text-body>
+  <AttachmentMessage
+    message={
+      Object {
+        "content": "See you later",
+        "from": "Ted",
+        "id": "q384tp1349fgh139p48g",
+      }
+    }
+  />
 </div>
 `;

@@ -70,21 +70,21 @@ exports[`MessageRow should render correctly 1`] = `
             }
           />
         </Spacer>
-        <Text-body>
-          <p
-            style={
-              Object {
-                "color": "#000",
-                "fontFamily": "-apple-system, BlinkMacSystemFont, \\"Segoe UI\\", \\"Roboto\\", \\"Oxygen\\", \\"Ubuntu\\", \\"Cantarell\\", \\"Fira Sans\\", \\"Droid Sans\\", \\"Helvetica Neue\\", sans-serif",
-                "fontSize": "17px",
-                "fontStyle": "normal",
-                "fontWeight": "400",
-              }
+        <AttachmentMessage
+          message={
+            Object {
+              "content": "See you later",
+              "from": "Ted",
+              "id": "q384tp1349fgh139p48g",
             }
+          }
+        >
+          <a
+            href="http://localhost:8080/room/undefined/file/See you later?token=null"
           >
-            See you later
-          </p>
-        </Text-body>
+            Download
+          </a>
+        </AttachmentMessage>
       </div>
     </Message>
   </div>
