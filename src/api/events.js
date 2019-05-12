@@ -1,6 +1,8 @@
 import { API_HOST } from './utils'
 export const EVENT_KEYS = {
-  new_message: /room\.[^.]*\.new_message/,
+  new_message: /room\..*\.new_message/,
+  user_invited: /user\..*\.invited/,
+  user_kicked: /user\..*\.kicked/,
 }
 
 class Events {

@@ -14,6 +14,8 @@ const FETCH_MESSAGES = 'ahoy/chats/FETCH_MESSAGES'
 const SET_MESSAGES = 'ahoy/chats/SET_MESSAGES'
 const SEND_MESSAGE = 'ahoy/chats/SEND_MESSAGE'
 const ADD_NEW_MESSAGE = 'ahoy/chats/ADD_NEW_MESSAGE'
+const ADD_NEW_ROOM = 'ahoy/chats/ADD_NEW_ROOM'
+const DELETE_ROOM = 'ahoy/chats/DELETE_ROOM'
 
 // Default state
 
@@ -42,13 +44,38 @@ export default function reducer(state = default_state, { type, payload }) {
     }
     case ADD_NEW_MESSAGE: {
       const { message } = payload
-      const room_messages = state.messages[message.to]
+      const room_messages = state.messages[message.to] || []
       room_messages.unshift(message)
       const new_messages = {
         ...state.messages,
-        [message.to]: Object.assign([], room_messages),
+        [message.to]: [...room_messages],
       }
       return Object.assign({}, state, { messages: new_messages })
+    }
+    case ADD_NEW_ROOM: {
+      const { room } = payload
+      const { id, name } = room
+      const new_room_list = state.rooms
+      new_room_list.unshift({ id, name })
+      console.log(new_room_list)
+      return Object.assign({}, state, {
+        rooms: [...new_room_list],
+      })
+    }
+    case DELETE_ROOM: {
+      const { room } = payload
+      const new_room_list = state.rooms.filter(r => r.id != room.id)
+      // eslint-disable-next-line no-unused-vars
+      const { [room.id]: _xxx, ...new_room_info } = state.room_info
+      // eslint-disable-next-line no-unused-vars
+      const { [room.id]: _yyy, ...new_messages } = state.messages
+      console.log(new_room_list, new_room_info, new_messages)
+      return {
+        ...state,
+        rooms: [...new_room_list],
+        room_info: new_room_info,
+        messages: new_messages,
+      }
     }
     default: {
       return state
@@ -87,6 +114,14 @@ export const sendMessage = (roomId, message) => ({
 export const addNewMessage = message => ({
   type: ADD_NEW_MESSAGE,
   payload: { message },
+})
+export const addRoom = room => ({
+  type: ADD_NEW_ROOM,
+  payload: { room },
+})
+export const deleteRoom = room => ({
+  type: DELETE_ROOM,
+  payload: { room },
 })
 
 // Selectors
@@ -154,6 +189,8 @@ function* eventsSaga() {
   try {
     const events = new Events()
     events.on(EVENT_KEYS.new_message, ({ body }) => addNewMessage(body))
+    events.on(EVENT_KEYS.user_invited, ({ body }) => addRoom(body))
+    events.on(EVENT_KEYS.user_kicked, ({ body }) => deleteRoom(body))
 
     const channel = yield eventChannel(events.getChannel())
 
