@@ -13,7 +13,7 @@ const styles = {
   boxSizing: 'border-box',
 
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'column-reverse',
   alignItems: 'flex-start',
 }
 
