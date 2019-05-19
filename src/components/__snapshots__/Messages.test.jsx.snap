@@ -118,7 +118,7 @@ exports[`Messages should render correctly 1`] = `
               }
             >
               <a
-                href="http://localhost:8080/room/undefined/file/It's gona be legend.. Whait for it!?token=null"
+                href="https://localhost:8080/room/undefined/file/It's gona be legend.. Whait for it!?token=null"
               >
                 Download
               </a>
@@ -207,7 +207,7 @@ exports[`Messages should render correctly 1`] = `
               }
             >
               <a
-                href="http://localhost:8080/room/undefined/file/See you later?token=null"
+                href="https://localhost:8080/room/undefined/file/See you later?token=null"
               >
                 Download
               </a>
@@ -296,7 +296,7 @@ exports[`Messages should render correctly 1`] = `
               }
             >
               <a
-                href="http://localhost:8080/room/undefined/file/..dary! Legendary, Ted!?token=null"
+                href="https://localhost:8080/room/undefined/file/..dary! Legendary, Ted!?token=null"
               >
                 Download
               </a>

@@ -80,7 +80,7 @@ exports[`MessageRow should render correctly 1`] = `
           }
         >
           <a
-            href="http://localhost:8080/room/undefined/file/See you later?token=null"
+            href="https://localhost:8080/room/undefined/file/See you later?token=null"
           >
             Download
           </a>

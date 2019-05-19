@@ -1,5 +1,5 @@
 export const API_HOST = process.env.REACT_APP_API_HOST || 'localhost:8080'
-export const API_HTTP_ENDPOINT = `http://${API_HOST}`
+export const API_HTTP_ENDPOINT = `https://${API_HOST}`
 
 const headers = extras => ({
   'Content-Type': 'application/json',
