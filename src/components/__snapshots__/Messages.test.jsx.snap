@@ -30,7 +30,7 @@ exports[`Messages should render correctly 1`] = `
         "alignItems": "flex-start",
         "boxSizing": "border-box",
         "display": "flex",
-        "flexDirection": "column",
+        "flexDirection": "column-reverse",
         "height": "100%",
         "overflowY": "scroll",
         "padding": "5px 10px 5px 10px",

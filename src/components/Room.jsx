@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 import {
   roomSelector,
   fetchRoom,
+  sendMessage,
   messagesSelector,
   fetchMessages,
 } from '../redux/chats'
@@ -25,11 +26,20 @@ const styles = {
   flexDirection: 'column',
 }
 
-const Room = ({ match, room, messages, fetchRoom, fetchMessages }) => {
+const Room = ({
+  match,
+  room,
+  messages,
+  fetchRoom,
+  fetchMessages,
+  sendMessage,
+}) => {
   useEffect(() => {
     if (!room) fetchRoom(roomId)
     if (messages === undefined) fetchMessages(roomId)
   }, [room, messages, roomId])
+
+  const [content, setContent] = useState('')
 
   const { roomId } = match.params
 
@@ -45,10 +55,11 @@ const Room = ({ match, room, messages, fetchRoom, fetchMessages }) => {
       <Messages messages={messages} fetchOldMessages={fetchOldMessages} />
       <Input
         onChange={event => {
-          console.log('Updated text:' + event.target.value)
+          setContent(event.target.value)
+          console.log(content)
         }}
         onSend={() => {
-          console.log('Send click')
+          sendMessage(roomId, content)
         }}
       />
     </div>
@@ -60,6 +71,7 @@ Room.propTypes = {
   room: PropTypes.object,
   messages: PropTypes.array,
   fetchRoom: PropTypes.func,
+  sendMessage: PropTypes.func,
   fetchMessages: PropTypes.func,
 }
 
@@ -70,6 +82,7 @@ const mapStateToProps = (state, { match }) => ({
 const mapDispatchToProps = dispatch => ({
   fetchRoom: roomId => dispatch(fetchRoom(roomId)),
   fetchMessages: roomId => dispatch(fetchMessages(roomId)),
+  sendMessage: (roomId, content) => dispatch(sendMessage(roomId, content)),
 })
 export default connect(
   mapStateToProps,

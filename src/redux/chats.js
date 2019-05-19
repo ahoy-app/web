@@ -107,9 +107,9 @@ export const setMessages = (roomId, messages) => ({
   type: SET_MESSAGES,
   payload: { roomId, messages },
 })
-export const sendMessage = (roomId, message) => ({
-  type: SET_MESSAGES,
-  payload: { roomId, message },
+export const sendMessage = (roomId, content) => ({
+  type: SEND_MESSAGE,
+  payload: { roomId, content },
 })
 export const addNewMessage = message => ({
   type: ADD_NEW_MESSAGE,
@@ -178,8 +178,8 @@ payload: { roomId: 'bc984df0', message: 'Me encanta' }
 */
 function* sendMessageSaga({ payload }) {
   try {
-    const { roomId, message } = payload
-    yield call(RoomApi.sendMessage, roomId, message)
+    const { roomId, content } = payload
+    yield call(RoomApi.sendMessage, roomId, content)
   } catch (e) {
     console.error(e)
   }
