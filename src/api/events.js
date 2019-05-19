@@ -17,7 +17,7 @@ class Events {
   _openWebSocket() {
     console.log('Connecting websocket')
     this.ws = new WebSocket(
-      `ws://${API_HOST}/ws?token=${localStorage.getItem('access_token')}`
+      `wss://${API_HOST}/ws?token=${localStorage.getItem('access_token')}`
     )
     this.ws.onclose = this._openWebSocket
     return this.ws
