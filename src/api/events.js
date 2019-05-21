@@ -8,6 +8,10 @@ export const EVENT_KEYS = {
 class Events {
   constructor() {
     this.callbacks = []
+    this._openWebSocket = this._openWebSocket.bind(this)
+    this._onMessage = this._onMessage.bind(this)
+    this._emitterFunction = this._emitterFunction.bind(this)
+    this.getChannel = this.getChannel.bind(this)
   }
 
   on(regex, action) {
@@ -20,28 +24,41 @@ class Events {
       `wss://${API_HOST}/ws?token=${localStorage.getItem('access_token')}`
     )
     this.ws.onclose = this._openWebSocket
+    this.ws.onmessage = this._onMessage
     return this.ws
   }
 
-  getChannel() {
-    const ws = this._openWebSocket()
-    return emitter => {
-      ws.onmessage = message => {
-        const { key, body } = JSON.parse(message.data)
-        const result = this.callbacks.find(({ regex }) => key.match(regex))
+  _onMessage(message) {
+    if (!this._emitter) return
 
-        if (result) {
-          const { action } = result
-          return emitter(action({ key, body }))
-        } else {
-          console.warn('Unsupported key', key)
-        }
-      }
-      return () => {
-        //Unsubscribe function
-        ws.close()
-      }
+    console.log('INCOMMING MESSAGE', this._emitter)
+    const { key, body } = JSON.parse(message.data)
+    const result = this.callbacks.find(({ regex }) => key.match(regex))
+
+    if (result) {
+      const { action } = result
+      return this._emitter(action({ key, body }))
+    } else {
+      console.warn('Unsupported key', key)
     }
+  }
+
+  _emitterFunction(emitter) {
+    console.log('EMMITERFUNCTION', emitter)
+
+    this._emitter = emitter
+    this._openWebSocket()
+    // Return value of the invocation of the emitter function will be used as onClose
+    return () => {
+      //Unsubscribe function
+      if (this.ws) this.ws.close()
+    }
+  }
+
+  getChannel() {
+    console.log('GETCHANNEL')
+    // Bind the function to this object to access this
+    return this._emitterFunction
   }
 }
 
